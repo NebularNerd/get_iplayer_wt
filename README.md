@@ -1,2 +1,18 @@
 # get_iplayer_wt
-Run get_iplayer_web_pvr in a Windows Terminal tab
+
+Run get_iplayer_web_pvr in a Windows Terminal tab  
+
+
+## About:
+This is a quick and easy batch to let you run the [get_iplayer](https://github.com/get-iplayer/get_iplayer) web pvr inside a [Windows Terminal](https://github.com/microsoft/terminal) tab. It's a direct copy of the ```C:\Program Files\get_iplayer\get_iplayer_web_pvr.cmd``` file except it adds a loop to the end to prevent the tab killing the pvr process. I made this purely for fun and to save having a random floating console window. I did post an issue [#417](https://github.com/get-iplayer/get_iplayer/issues/417) about the web pvr not working inside a Windows Terminal, if they reopen the ticket I'll update the devs about my quick fix and see if they want to roll it into future versions.
+
+## Usage:
+Simply copy the ```get_iplayer_web_pvr.bat``` file to your get_iplayer directory, typically ```C:\Program Files\get_iplayer\``` then create a new profile in Windows Terminal using the following settings (adjust if you have installed elsewhere):  
+- Command Line: ```%SystemRoot%\System32\cmd.exe /c "C:\Program Files\get_iplayer\get_iplayer_web_pvr.bat"```
+- Start In: ```%HOMEDRIVE%%HOMEPATH%```
+- Icon: ```%SystemDrive%\Program Files\get_iplayer\get_iplayer_pvr.ico```
+- Set a theme in the appearance section, I use the hideous Solarized Light theme to help ensure I don't close it by mistake!
+Done!  
+
+## Screenshot
+![I use the hideous Solarized Light theme to help ensure I don't close it by mistake!](https://github.com/NebularNerd/get_iplayer_wt/blob/11aab2a5b8327037e73ce3ce17cfbd7237b9c5b1/get_iplayer_web_pvr_wt.png)
