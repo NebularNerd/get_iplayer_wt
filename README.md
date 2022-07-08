@@ -14,5 +14,20 @@ Simply copy the ```get_iplayer_web_pvr.bat``` file to your get_iplayer directory
 - Set a theme in the appearance section, I use the hideous Solarized Light theme to help ensure I don't close it by mistake!
 Done!  
 
+## File contents:
+The only changes made to the stock file are the last 3 lines, this prevents Windows Terminal killing the tab processes, WT behaves differently to a regular command prompt, when it reaches the end of the stock batch file it kills the PVR service off.
+```  
+@echo off
+setlocal
+set GIP_INST=%~dp0
+if #%GIP_INST:~-1%# == #\# set GIP_INST=%GIP_INST:~0,-1%
+start "PVR Manager Service" /min /b cmd /k "%GIP_INST%\get_iplayer_cgi.cmd"
+ping 127.0.0.1 -n 5 -w 1000 > NUL
+start http://localhost:1935
+:noexitloop
+pause>nul
+GOTO noexitloop
+```  
+
 ## Screenshot
 ![I use the hideous Solarized Light theme to help ensure I don't close it by mistake!](https://github.com/NebularNerd/get_iplayer_wt/blob/11aab2a5b8327037e73ce3ce17cfbd7237b9c5b1/get_iplayer_web_pvr_wt.png)
